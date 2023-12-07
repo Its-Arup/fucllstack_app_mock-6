@@ -11,6 +11,13 @@ app.use(express.json());
 const PORT = process.env.PORT || 4500 ;
 
 
+app.use("/",(req,res)=>{
+    try {
+        res.status(200).send({msg : "home page"})
+    } catch (error) {
+        res.status(400).send({msg : error.message})
+    }
+})
 app.use("/user", userRouter)
 app.use("/blog", blogRouter)
 
