@@ -3,9 +3,9 @@ const jwt = require("jsonwebtoken");
 const auth = async (req, res, next) => {
   try {
     const token = req.headers.Authorization?.split(" ")[1] || null;
-
+    console.log(token)
     if (!token) {
-      res.status(400).send({ msg: "login firts" });
+      return res.status(400).send({ msg: "login firts" });
     } else {
       const decoded = jwt.verify(token, "secret");
       if (decoded) {

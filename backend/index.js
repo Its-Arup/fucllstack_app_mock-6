@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4500;
 app.use("/user", userRouter);
 app.use("/blog", blogRouter);
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   try {
     res.status(200).send({ msg: "home page" });
   } catch (error) {
