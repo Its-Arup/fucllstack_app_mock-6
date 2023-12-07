@@ -5,16 +5,23 @@ import {
   CREATE_BLOG_SUCC,
 } from "./actionType";
 
-const baseUrl = "http://localhost:4500/blog";
+const baseUrl = "https://blog-app-llxp.onrender.com/blog";
+
+const token = localStorage.getItem("token") || null
 
 export const createBlog = (payload) => (dispatch) => {
   dispatch({ type: CREATE_BLOG_REQ });
   axios({
     method: "POST",
     url: `${baseUrl}/blogs`,
+    headers : {
+      "Content-Type" : "application/json",
+      Authorization : `Bearer ${token}`
+    },
     data: payload,
   })
     .then((res) => {
+      console.log(res)
       dispatch({ type: CREATE_BLOG_SUCC, payload: res.data.data });
     })
     .catch((err) => {

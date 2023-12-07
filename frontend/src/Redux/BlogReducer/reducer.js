@@ -14,6 +14,7 @@ export const reducer = (state = initState, { type, payload }) => {
                 isLoding : true
             }
         case CREATE_BLOG_SUCC :
+            
             return {
                 ...state,
                 isLoding : false,

@@ -6,7 +6,7 @@ import {
   USERREGISTERSUCCESS,
 } from "./actionType";
 
-const baseUrl = "http://localhost:4500/user";
+const baseUrl = "https://blog-app-llxp.onrender.com/user";
 
 
 export const registerUser = (payload) => (dispatch) => {

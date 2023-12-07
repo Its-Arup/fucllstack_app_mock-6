@@ -16,7 +16,7 @@ import {
   Textarea,
   Select,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createBlog } from "../Redux/BlogReducer/action";
 
 function Blog() {
@@ -32,6 +32,10 @@ function Blog() {
     Category: "",
   });
 
+  const blogs = useSelector((store)=>{
+    return store.blogReducer.blogs
+  })
+  console.log(blogs)
 
   const handelChange = (e) => {
     setBloginput((prev) => {
@@ -105,7 +109,7 @@ function Blog() {
         </ModalContent>
       </Modal>
 
-      
+
     </>
   );
 }
