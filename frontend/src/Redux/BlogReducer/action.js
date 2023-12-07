@@ -5,7 +5,8 @@ import {
   CREATE_BLOG_SUCC,
 } from "./actionType";
 
-const baseUrl = "https://blog-app-llxp.onrender.com/blog";
+// const baseUrl = "https://blog-app-llxp.onrender.com/blog";
+const baseUrl = "http://localhost:4500/blog";
 
 const token = localStorage.getItem("token") || null
 
@@ -16,7 +17,7 @@ export const createBlog = (payload) => (dispatch) => {
     url: `${baseUrl}/blogs`,
     headers : {
       "Content-Type" : "application/json",
-      Authorization : `Bearer ${token}`
+      authorization : `Bearer ${token}`
     },
     data: payload,
   })
